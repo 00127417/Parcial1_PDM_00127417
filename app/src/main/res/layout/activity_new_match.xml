@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.NewMatchActivity"
+    android:orientation="vertical">
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ingresa_los_datos"
+            android:textSize="@dimen/title_size"
+            android:textColor="#000"
+            android:layout_margin="@dimen/margin_tv"/>
+
+        <EditText
+            android:id="@+id/et_nameA"
+            android:layout_width= "@dimen/et_width"
+            android:layout_height="wrap_content"
+            android:hint="@string/teamA_name"
+            android:layout_margin="@dimen/margin_tv"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/et_nameB"
+            android:layout_width= "@dimen/et_width"
+            android:layout_height="wrap_content"
+            android:hint="@string/teamB_name"
+            android:layout_margin="@dimen/margin_tv"
+            android:inputType="text"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ingresa_fecha"
+            android:textSize="@dimen/title_size"
+            android:textColor="#000"
+            android:layout_margin="@dimen/margin_tv"/>
+
+        <LinearLayout
+            android:layout_width="@dimen/et_width"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/et_dia"
+                android:layout_width= "0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:hint="@string/day"
+                android:layout_margin="@dimen/margin_tv"
+                android:inputType="number"/>
+            <EditText
+                android:id="@+id/et_mes"
+                android:layout_width= "0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:hint="@string/month"
+                android:layout_margin="@dimen/margin_tv"
+                android:inputType="number"/>
+            <EditText
+                android:id="@+id/et_anio"
+                android:layout_width= "0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:hint="@string/year"
+                android:layout_margin="@dimen/margin_tv"
+                android:inputType="number"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ingresa_hora"
+            android:textSize="@dimen/title_size"
+            android:textColor="#000"
+            android:layout_margin="@dimen/margin_tv"/>
+
+        <LinearLayout
+            android:layout_width="@dimen/et_width"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/et_hora"
+                android:layout_width= "0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:hint="@string/hour"
+                android:layout_margin="@dimen/margin_tv"
+                android:inputType="number"/>
+            <EditText
+                android:id="@+id/et_minutos"
+                android:layout_width= "0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:hint="@string/minutes"
+                android:layout_margin="@dimen/margin_tv"
+                android:inputType="number"/>
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/bt_iniciar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/iniciar"
+            android:inputType="text"/>
+
+
+    </LinearLayout>
+
+
+</ScrollView>

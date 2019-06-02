@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Parcial1_PDM</string>
+    <string name="ingresa_los_datos">Enter match data</string>
+    <string name="teamA_name">Enter team A name</string>
+    <string name="teamB_name">Enter team B name</string>
+    <string name="day">Day</string>
+    <string name="month">Month</string>
+    <string name="year">Year</string>
+    <string name="iniciar">START</string>
+    <string name="hour">Hour</string>
+    <string name="minutes">Minutes</string>
+    <string name="ingresa_fecha">Enter match day</string>
+    <string name="ingresa_hora">Enter match time</string>
+    <string name="name_team_a">team a</string>
+    <string name="action_3_points">+3 POINTS</string>
+    <string name="action_2_points">+2 POINTS</string>
+    <string name="action_free_throw">FREE THROW</string>
+    <string name="name_team_b">team b</string>
+    <string name="action_finish">FINISH MATCH</string>
+</resources>
