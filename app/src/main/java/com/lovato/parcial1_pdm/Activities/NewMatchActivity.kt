@@ -21,10 +21,11 @@ class NewMatchActivity : AppCompatActivity() {
 
         matchViewModel = ViewModelProviders.of(this).get(MatchViewModel::class.java)
 
-        var date = "${et_dia.text}/${et_mes}/${et_anio}"
-        var time = "${et_hora.text.toString()}:${et_minutos.text.toString()}"
-
         bt_iniciar.setOnClickListener{
+
+            var date = "${et_dia.text}/${et_mes.text}/${et_anio.text}"
+            var time = "${et_hora.text}:${et_minutos.text}"
+
             match = MatchEntity(
                     et_nameA.text.toString(),
                     0,
@@ -33,11 +34,14 @@ class NewMatchActivity : AppCompatActivity() {
                     date,
                     time
             )
-            matchViewModel.insertMatch(match)
 
-            val extras = Bundle()
-            extras.putLong("id_match",match.id_match)
-            startActivity(Intent(this, ScoreActivity::class.java).putExtra("id",match.id_match))
+            startActivity(Intent(this, ScoreActivity::class.java)
+                    .putExtra("nameA",match.nameTeamA)
+                    .putExtra("nameB",match.nameTeamB)
+                    .putExtra("scoreA",match.scoreTeamA)
+                    .putExtra("scoreB",match.scoreTeamB)
+                    .putExtra("date",match.date)
+                    .putExtra("time",match.time))
         }
     }
 

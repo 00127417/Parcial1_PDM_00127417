@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Parcial1_PDM</string>
-    <string name="ingresa_los_datos">Enter match data</string>
+    <string name="ingresa_los_datos">Enter teams name</string>
     <string name="teamA_name">Enter team A name</string>
     <string name="teamB_name">Enter team B name</string>
     <string name="day">Day</string>
@@ -17,4 +17,9 @@
     <string name="action_free_throw">FREE THROW</string>
     <string name="name_team_b">team b</string>
     <string name="action_finish">FINISH MATCH</string>
+    <string name="n_a_value">N/A</string>
+    <string name="score_team">Score Teams</string>
+    <string name="fecha_juego">Date Game</string>
+    <string name="hora_juego">Time Game</string>
+    <string name="action_details">see details</string>
 </resources>

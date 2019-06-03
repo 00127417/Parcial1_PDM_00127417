@@ -7,15 +7,15 @@ data class MatchEntity(
     @ColumnInfo(name = "m_name_teama")
     val nameTeamA: String,
     @ColumnInfo(name = "m_score_teama")
-    val scoreTeamA: Int,
+    var scoreTeamA: Int,
     @ColumnInfo(name = "m_name_teamb")
     val nameTeamB: String,
     @ColumnInfo(name = "m_score_teamb")
-    val scoreTeamB: Int,
+    var scoreTeamB: Int,
     @ColumnInfo(name = "m_date")
     val date: String,
     @ColumnInfo(name = "m_time")
-    var time: String
+    val time: String
 ){
 
     @PrimaryKey(autoGenerate = true)

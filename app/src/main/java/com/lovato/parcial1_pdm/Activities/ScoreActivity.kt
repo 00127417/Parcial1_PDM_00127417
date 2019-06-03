@@ -8,12 +8,23 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.lovato.parcial1_pdm.R
+import com.lovato.parcial1_pdm.RoomDatabase.Entities.MatchEntity
 import com.lovato.parcial1_pdm.ViewModel.MatchViewModel
+import kotlinx.android.synthetic.main.activity_new_match.*
 import kotlinx.android.synthetic.main.activity_score_match.*
 
 class ScoreActivity : AppCompatActivity(){
 
     lateinit var matchViewModel: MatchViewModel
+    var idMatch: Long = 0
+    lateinit var nameA: String
+    lateinit var nameB: String
+    var scoreA: Int = 0
+    var scoreB: Int = 0
+    lateinit var dateI: String
+    lateinit var timeI: String
+    lateinit var match: MatchEntity
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,78 +32,82 @@ class ScoreActivity : AppCompatActivity(){
 
         matchViewModel = ViewModelProviders.of(this).get(MatchViewModel::class.java)
 
+        nameA = intent.getStringExtra("nameA")
+        nameB = intent.getStringExtra("nameB")
+        scoreA = intent.getIntExtra("scoreA",0)
+        scoreB = intent.getIntExtra("scoreB",0)
+        dateI = intent.getStringExtra("date")
+        timeI = intent.getStringExtra("time")
 
-        matchViewModel.getMatchById(intent.getLongExtra("id_match",0)).observe(this, Observer { match->
+        tv_nameA.text = nameA
+        tv_nameB.text = nameB
 
-            displayScore(tv_score_team_a,match.scoreTeamA)
-            displayScore(tv_score_team_b,match.scoreTeamB)
-            tv_nameA.text = match.nameTeamA
-            tv_nameB.text = match.nameTeamB
-        })
+        displayScore(tv_score_team_a,scoreA)
+        displayScore(tv_score_team_b,scoreB)
+
+
+        bt_finish.setOnClickListener{
+            match = MatchEntity(
+                   nameA,
+                    scoreA,
+                    nameB,
+                    scoreB,
+                    dateI,
+                    timeI
+            )
+            matchViewModel.insertMatch(match)
+
+            startActivity(Intent(this, MainActivity::class.java))
+        }
+
 
     }
-
 
     fun addOneTeamA(v: View) {
         displayScore(
                 tv_score_team_a,
-                ++scoreViewModel.scoreTeamA
+                ++scoreA
         )
     }
 
     fun addOneTeamB(v: View) {
         displayScore(
                 tv_score_team_b,
-                ++scoreViewModel.scoreTeamB
+                ++scoreB
         )
     }
 
     fun addTwoTeamA(v: View) {
-        scoreViewModel.scoreTeamA += 2
+        scoreA += 2
         displayScore(
                 tv_score_team_a,
-                scoreViewModel.scoreTeamA
+                scoreA
         )
     }
 
     fun addTwoTeamB(v: View) {
-        scoreViewModel.scoreTeamB += 2
+        scoreB += 2
         displayScore(
                 tv_score_team_b,
-                scoreViewModel.scoreTeamB
+                scoreB
         )
     }
 
     fun addThreeTeamA(v: View) {
-        scoreViewModel.scoreTeamA += 3
+        scoreA += 3
         displayScore(
                 tv_score_team_a,
-                scoreViewModel.scoreTeamA
+                scoreA
         )
     }
 
     fun addThreeTeamB(v: View) {
-        scoreViewModel.scoreTeamB += 3
+        scoreB += 3
         displayScore(
                 tv_score_team_b,
-                scoreViewModel.scoreTeamB
+                scoreB
         )
     }
-
-    fun resetScores(v: View) {
-        scoreViewModel.scoreTeamA = 0
-        scoreViewModel.scoreTeamB = 0
-
-        displayScore(
-                tv_score_team_a,
-                scoreViewModel.scoreTeamA
-        )
-
-        displayScore(
-                tv_score_team_b,
-                scoreViewModel.scoreTeamB
-        )
-    } // TODO: Limpiando datos
 
     fun displayScore(v: TextView, score: Int) {
         v.text = score.toString()
