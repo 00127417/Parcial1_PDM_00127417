@@ -42,6 +42,7 @@ class NewMatchActivity : AppCompatActivity() {
                     .putExtra("scoreB",match.scoreTeamB)
                     .putExtra("date",match.date)
                     .putExtra("time",match.time))
+            finish()
         }
     }
 
